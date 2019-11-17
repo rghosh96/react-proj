@@ -10,7 +10,7 @@
   * __Npm__: run the following commands in order to test it completely locally via your localhost:3000 port:
   `npm install`     in order to install all dependencies for the app
   `npm start`       the command line will open the app running locally in your default browser
-  * __Heroku loca__l:  run the following commands in order to ensure Heroku can properly deploy it:  
+  * __Heroku local__:  run the following commands in order to ensure Heroku can properly deploy it:  
   `npm install`     in order to install all dependencies for the app  
   `heroku local` in order to run the app locally via Heroku  
     * To exit from either, simply type `Ctrl + C`
