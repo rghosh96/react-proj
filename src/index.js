@@ -75,6 +75,14 @@ function Square(props) {
                 {this.renderSquare(7)}
                 {this.renderSquare(8)}
             </div>
+
+            <select>
+              <option value="volvo">beep</option>
+              <option value="saab">boop</option>
+              <option value="mercedes">bip</option>
+              <option value="audi">bloop</option>
+            </select>
+
             </div>
         );
     }
