@@ -4,7 +4,7 @@
 1. Clone the repository from [GitHub](https://github.com/rghosh96/react-proj) onto your local machine.
 2. Cd into the directory.
 3. Make the desired changes.
-3. Log in to heroku via the command: 
+4. Log in to heroku via the command: 
 `heroku login`
 5. Changes can be tested in two ways:
   * __Npm__: run the following commands in order to test it completely locally via your localhost:3000 port:
@@ -23,13 +23,13 @@
 2. Cd into the directory.
 3. Log in to heroku via the command: 
 `heroku login`
-3. After the desired changes are made, (previous step)
+4. After the desired changes are made, (previous step)
   * **DO NOT** proceed until you have done so and the changes have been tested and ran by all other members!
-4. Merge changes to master (Must pass code review in order to proceed with this step).
-5. Now a remote heroku master branch must be created locally in order to prepare Heroku to receive the source code via the command `heroku git:remote -a quiet-shore-79782`
-6. Now you can deploy it!
+5. Merge changes to master (Must pass code review in order to proceed with this step).
+6. Now a remote heroku master branch must be created locally in order to prepare Heroku to receive the source code via the command `heroku git:remote -a quiet-shore-79782`
+7. Now you can deploy it!
 `git push heroku master`
-7. And boom! :D See your successfully deployed changes [here!](https://quiet-shore-79782.herokuapp.com/)
+8. And boom! :D See your successfully deployed changes [here!](https://quiet-shore-79782.herokuapp.com/)
 
 
 
