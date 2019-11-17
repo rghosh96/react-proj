@@ -1,3 +1,17 @@
+## A simple React app deployed via Heroku.
+
+### How to make changes to the app:
+1) Clone the repository from GitHub: https://github.com/rghosh96/react-proj
+2) Cd into the directory.
+3) Log in to heroku via the command: heroku login
+3) After the desired changes are made, test locally (via the command: heroku local)
+4) Create the remote heroku branch in order to deploy it to heroku master via the command: heroku git:remote -a quiet-shore-79782
+5) Now you can deploy it by the command: git push heroku master
+6) And boom! :D 
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

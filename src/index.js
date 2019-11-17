@@ -4,6 +4,7 @@ import './index.css';
 import { tsConstructorType } from '@babel/types';
 
 
+
 //function component!
 function Square(props) {
     return (
@@ -136,6 +137,8 @@ function Square(props) {
   
   // ========================================
   
+
+
   ReactDOM.render(
     <Game />,
     document.getElementById('root')
