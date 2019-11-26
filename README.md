@@ -23,6 +23,8 @@ If you are pushing your local branch to GitHub for the **first time**,  type the
 `git push --set-upstream origin <branch-name>`
 This puts your whole local branch on GitHub. Go to the online repo and select the drop down next to branches. You will see your branch now!
 Say you make some more edits to your branch. Now all you have to do is simply type, 
+`git add .`
+`git commit -m "commit message here"`
 `git push origin <branch-name>`
 
 **DO NOT PROCEED TO THE NEXT STEP UNLESS YOUR CODE HAS BEEN CODE REVIEWED! TO SEE CHANGES LOCALLY, GO TO THE SECTION BELOW THIS.**
