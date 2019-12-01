@@ -1,27 +1,386 @@
-.jumbotron {
-  background: #532F8C;
-  color: white;
-  padding-bottom: 80px; }
-  .jumbotron .btn-primary {
-    background: #845ac7;
-    border-color: #845ac7; }
-    .jumbotron .btn-primary:hover {
-      background: #7646c1; }
-  .jumbotron p {
-    color: #d9ccee;
-    max-width: 75%;
-    margin: 1em auto 2em; }
-  .navbar + .jumbotron {
-    margin-top: -20px; }
-  .jumbotron .lang-logo {
-    display: block;
-    background: #B01302;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    border: 2px solid white; }
-    .jumbotron .lang-logo img {
-      max-width: 100%; }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* accounts for padding + margin + border in widht & height */
+  font-family: 'Comfortaa', cursive;
+}
 
+body {
+  height: 100vh;
+  background-color: white;
+  transition: all 1s ease-out;
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.coursesMain {
+  border-right: 2px solid lightgray;
+  display: flex;
+  left: 0;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-end;;
+  justify-content: center;
+  width: 20%;
+  position: fixed;
+  height: 100%;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  top: 0;
+  background-color: darkred;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin: 15px;
+  color: white;
+}
+
+.openbtn {
+  visibility: hidden;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  color: darkred;
+  position: absolute;
+  right: 0px;
+  padding: 10px 15px;
+  margin: 15px;
+  background: none;
+  border: none;
+}
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 100px;
+}
+
+.darkClass {
+  visibility: hidden;
+  background-color: black;
+  filter:alpha(opacity=50); /* IE */
+  opacity: 0.5; /* Safari, Opera */
+  -moz-opacity:0.50; /* FireFox */
+  z-index: 7;
+  height: 100%;
+  width: 100%;
+  background-repeat:no-repeat;
+  background-position:center;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+}
+
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: 'Poiret One', cursive;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+#links {
+  display: flex;
+  justify-content: space-around;
+  width: 15%;
+}
+
+.navlinks {
+  font-family: 'Poiret One', cursive;
+  font-size: 15px;
+  letter-spacing: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+button:hover {
+  color: #783000;
+  cursor: pointer;
+  animation: pulse 1s infinite;
+  border-radius: 20px;
+}
+
+
+.title {
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 75px;
+}
+
+#userModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+}
+
+/* Modal Content */
+.modalcontent {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: auto; /* Enable scroll if needed */
+  border-radius: 25px;
+  margin: auto;
+  padding: 50px;
+  border: none;
+  width: 50%;
+}
+
+.userModal {
+  background-color:white;
+}
+
+#close {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  color:white;
+  transition: all .3s ease-in-out;
+  display: flex;
+  align-self: flex-end;
+}
+
+#close:hover {
+  animation: pulse 1s infinite;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  font-family:'Roboto Mono', monospace;
+  padding-bottom: 20px;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 17px;
+  margin-bottom: 3px;
+  color: rgb(44, 63, 51);
+}
+
+h3 {
+  font-family: 'Poiret One', cursive;
+  font-size: 17px;
+  color: rgb(44, 63, 51);
+}
+
+.introText {
+  margin: 7px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  text-align:center;
+}
+
+.titleText {
+  font-family: 'Poiret One', cursive;
+  font-size: 27px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 100%;               
+  background-color:lightgray;
+  height: 1px;
+  margin: 21px 0px 21px 0px;
+}
+
+
+.section {
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  width: 50%;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  margin: 31px;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin: 5px 0px 5px 0px;
+}
+
+.superSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.vl {
+  border-left: 1px solid lightgray;
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.paragraph {
+  color: white;
+  font-family: 'Poiret One', cursive;
+  font-size: 20px;
+}
+
+input[type="text"], input[type="password"], textarea, select { 
+  outline: none;
+  width: 150px;
+}
+
+input[type="radio"] {
+  margin-right: 3px;
+}
+
+.inp {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+p {
+  font-size: 13px;
+}
+
+button {
+  transition: all .7s ease-in-out;
+  padding: 11px;
+  border-color: lightgray;
+  border-radius: 20px;
+  margin: 15px;
+  outline:none;
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+
+/* responsive - for mobile */
+@media only screen and (max-width: 500px) {
+  #userAccess {
+      font-size: 10px;
+  }
+  .header {
+      font-size: 10px
+  }
+  .logo {
+      height:25px;
+  }
+  .modalcontent {
+      padding: 15px;
+  }
+  h1 {
+      font-size: 17px;
+  }
+  h2 {
+      font-size: 14px;
+  }
+  h3 {
+      font-size: 12px;
+  }
+  .paragraph {
+      font-size: 10px;
+  }
+  #links {
+      visibility: hidden;
+  }
+  .openbtn {
+      visibility: visible;
+  }
+}
+
+/* responsive - for tablet */
+@media only screen and (min-width: 501px) and (max-width: 1025px) {
+  #userAccess {
+      font-size: 15px;
+  }
+  #links {
+      visibility: hidden;
+  }
+  .openbtn {
+      visibility: visible;
+  }
+}
+
+/* responsive - for desktop */
+@media only screen and (min-width: 1026px) {
+
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}

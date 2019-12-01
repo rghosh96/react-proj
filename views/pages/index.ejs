@@ -1,11 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-Homepage
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pocketAdvisor</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Poiret+One|Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
-
 <body>
+    
+<div class="main">
+    <div class="title animated flipInY">
+        <div class="introText">welcome to</div>
+        <div class="titleText">pocket advisor</div>
+    </div>
+
+    <div class = "options">
+    <div class="top animated bounceInUp delay-1s"> 
+        <button id="userAccess" onclick="dropModal('userModal')">User Access</button> 
+    </div>
+    <div class="top animated bounceInUp delay-1s"> 
+            <a href="/courses"><button>Guest Access</button> </a>
+        </div>
+    </div>
+</div>
+
+    <div id = "userModal">
+        <div class = "modalcontent userModal animated bounceInDown">
+            <span id ="close" style="color:#800000;">✘</span>
+            <h1 class ="animated jello" style="color:#800000;">User Access</h1>
+            <h3 class ="animated jello" style="color:#c2acac;">Welcome back! Log in with your credentials below to revisit where you left off!</h3>
+            <hr>
+            <div class = "superSection">
+            <div class = "section">
+                <h2 style="width: 100%; text-align: left;">Returning User</h2><br>
+                <p style="font-family: 'Poiret One', cursive; color:gray; margin-bottom: 15px;">Welcome back! It's good to see you again. Sign in below!</p>
+                <div class="field">
+                    <p style="color:#c2acac;">username:</p>
+                    <input type="text" name="username">
+                </div>
+                <div class="field">
+                    <p style="color:#c2acac;">password:</p>
+                    <input type="password" name="password">
+                </div>
+                <button style="margin-top: 31px; background-color:maroon; color:white;">sign in</button>
+            </div>
+
+            <div class="vl"></div>
+            <div class = "section">
+                <h2 style="width: 100%; text-align: left;">New User</h2><br>
+                <p style="font-family: 'Poiret One', cursive; color:gray; margin-bottom: 15px;">New to pocketAdvisor? Create a free account below!</p>
+                <div class="field">
+                    <p style="color:#c2acac;">name:</p>
+                    <input type="text" name="name">
+                </div>
+                <div class="field">
+                    <p style="color:#c2acac;">email:</p>
+                    <input type="text" name="email">
+                </div>
+                <div class="field">
+                    <p style="color:#c2acac;">major:</p>
+                    <div class="inp">
+                        <input type="radio" name="major" value="CS"> <p style="margin-right:7px;">CS</p>
+                        <input type="radio" name="major" value="CE"> <p style="margin-right:7px;">CE</p>
+                        <input type="radio" name="major" value="other"> <p>other</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <p style="color:#c2acac;">minor:</p>
+                    <div class="inp">
+                        <input type="radio" name="minor" value="CS"> <p style="margin-right:7px;">CS</p>
+                        <input type="radio" name="minor" value="CE"> <p style="margin-right:7px;">CE</p>
+                        <input type="radio" name="minor" value="math"> <p style="margin-right:7px;">math</p>
+                        <input type="radio" name="minor" value="other"> <p>other</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <p style="color:#c2acac;">username:</p>
+                    <input type="text" name="username">
+                </div>
+                <div class="field">
+                    <p style="color:#c2acac;">password:</p>
+                    <input type="password" name="password">
+                </div>
+                <button style="margin-top: 31px; background-color:maroon; color:white;">register</button>
+            </div>
+            
+         </div>
+        </div>
+    </div>
+</div>
+
+</div>
 
 
+
+    <script>
+    //********* BUILDING MODALS JAVASCRIPT FUNCTIONALITY! ***********//
+
+
+
+//gets all the close buttons
+var exit = document.getElementById("close");
+
+//function to make building modals appear when clicked; takes specified modal & building svg
+function dropModal(modal) {
+    //series of if statements to change body bg color depending on modal selected
+        bgColor("#c2acac");
+
+    //display modal & enlarge specified building svg
+    document.getElementById(modal).style.display = "block";
+
+
+    
+        //following function restores bg color to white, shows building links, hides modal, & scales building svg back down
+        exit.onclick = function() {
+            bgColor("white");
+            document.getElementById(modal).style.display = "none";
+        }
+    }
+
+
+function bgColor(color) {
+    document.body.style.backgroundColor = color;
+}
+
+//hamburger style navbar toggle
+function openNav() {
+    document.getElementById("mySidebar").style.width = "30%";
+    document.getElementById("darkLayer").style.visibility = "visible";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("darkLayer").style.visibility = "hidden";
+  }
+
+
+
+//toggle duty and desk info
+function show(item) {
+    var reveal = document.getElementById(item);
+    if (reveal.style.display === "block") {
+        reveal.style.display = "none";
+    }
+    else {
+        reveal.style.display = "block";
+    }
+}
+    
+    </script>
 </body>
 </html>
