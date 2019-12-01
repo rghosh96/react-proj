@@ -8,21 +8,51 @@ const pool = new Pool({
   ssl: true
 });
 
+
 express()
-  .use(express.static(path.join(__dirname, 'public'))) 
+  .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/db', async (req, res) => {
+
+  .get('/courses', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query('SELECT * FROM courses');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results ); 
-      client.release(); 
+
+      // this starter string allows access to the entire table if no query args provided in request
+      var str = 'SELECT * FROM courses';   
+
+      if (Object.keys(req.query).length > 0) {
+        // one example of a result: 'SELECT * FROM courses WHERE subject = MATH AND hours = 3'
+        str += ' WHERE'
+        for (var key of Object.keys(req.query)) {
+          str = str + ' ' + key + ' = \'' + req.query[key] + '\' AND';
+        }
+        str += ' subject IS NOT NULL'; // could be better. needed to handle the extra 'AND' at the end
+      }
+
+      const result = await client.query(str);      
+      const results = { 'results': (result) ? result.rows : null };
+      res.render('pages/courses', results)
+      client.release();
     } catch (err) {
       console.error(err);
       res.send("Error " + err);
     }
   })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+  .get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM courses');
+      const results = { 'results': (result) ? result.rows : null };
+      res.render('pages/db', results);
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
+
+  .listen(PORT, () => console.log(`Listening on ${PORT}`))
