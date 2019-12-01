@@ -9,6 +9,7 @@ const pool = new Pool({
 });
 
 
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
@@ -23,7 +24,7 @@ express()
       var str = 'SELECT * FROM courses';   
 
       if (Object.keys(req.query).length > 0) {
-        // one example of a result: 'SELECT * FROM courses WHERE subject = MATH AND hours = 3'
+        // one example of a result: SELECT * FROM courses WHERE subject = 'MATH' AND hours = '3'
         str += ' WHERE'
         for (var key of Object.keys(req.query)) {
           str = str + ' ' + key + ' = \'' + req.query[key] + '\' AND';
@@ -34,25 +35,11 @@ express()
       const result = await client.query(str);      
       const results = { 'results': (result) ? result.rows : null };
       res.render('pages/courses', results)
-      client.release();
+      client.release(); 
     } catch (err) {
       console.error(err);
       res.send("Error " + err);
     }
   })
-
-  .get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const result = await client.query('SELECT * FROM courses');
-      const results = { 'results': (result) ? result.rows : null };
-      res.render('pages/db', results);
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
-
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
