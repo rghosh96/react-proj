@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    Courses
+    <ul>
+        <% results.forEach(function(r) { %>
+        <li><%= r.id %> - <%= r.name %> - <%= r.subject %> - <%= r.number %> - <%= r.hours %></li>
+        <% }); %>
+    </ul>
+</head>
+
+<body>
+    <table>
+
+    </table>
+</body>
+
+<script>
+    function generateTableHead(table) {
+        let thead = table.createTHead();
+        let row = thead.insertRow();
+        for (let key of data) {
+            let th = document.createElement("th");
+            let text = document.createTextNode(key);
+            th.appendChild(text);
+            row.appendChild(th);
+        }
+    }
+
+    let courses = document.getElementsByName("results");
+    //let courses = [{"name":"zander", "age": 21}, {"name":"Gaby", "age":19}];
+
+    let table = document.querySelector("table");
+    let data = Object.keys(courses[0]);
+    generateTableHead(table);
+
+
+
+</script>
+
+</html>
