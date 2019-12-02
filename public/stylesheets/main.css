@@ -257,6 +257,7 @@ hr {
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  align-items: baseline;
   margin: 5px 0px 5px 0px;
 }
 
@@ -308,7 +309,8 @@ p {
 button {
   transition: all .7s ease-in-out;
   padding: 11px;
-  border-color: lightgray;
+  border: 1px solid lightgray;
+  background-color: white;
   border-radius: 20px;
   margin: 15px;
   outline:none;
@@ -325,7 +327,7 @@ button {
   }
   .section {
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     justify-content: center;
     align-items: center;
     margin: 0px 0px 31px 0px;
@@ -351,6 +353,9 @@ button {
   p {
     font-size: 11px;
   }
+  .inp {
+    width: 70%;
+  }
 }
 
 /* responsive - for tablet */
@@ -361,17 +366,21 @@ button {
   }
   .section {
     flex-direction: column;
-    width: 90%;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     margin: 0px 0px 31px 0px;
   }
   .field {
     flex-direction: column;
   }
+  button {
+    align-self: center;
+  }
   h1 {
     font-size: 17px;
     text-align: center;
+  }
+  .inp {
+    width: 70%;
   }
   h3 {
     font-size: 13px;
