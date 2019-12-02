@@ -324,7 +324,7 @@ button {
 }
 
 /* responsive - for mobile */
-@media only screen and (max-width: 500px) {
+@media screen and (max-width: 500px) {
   .superSection {
     flex-direction:column;
     justify-content: center;
@@ -366,7 +366,7 @@ button {
 
 
 /* responsive - for tablet */
-@media only screen and (min-width: 501px) and (max-width: 1050px) {
+@media screen and (min-width: 501px) and (max-width: 1050px) {
   .superSection {
     flex-direction:column;
     justify-content: center;
@@ -406,7 +406,7 @@ button {
 }
 
 /* responsive - for desktop */
-@media only screen and (min-width: 1051px) {
+@media screen and (min-width: 1051px) {
   
 }
 
