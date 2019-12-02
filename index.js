@@ -21,21 +21,34 @@ express()
       const client = await pool.connect()
 
       // this starter string allows access to the entire table if no query args provided in request
-      var str = 'SELECT * FROM courses';   
+      var str = 'SELECT * FROM courses';
 
       if (Object.keys(req.query).length > 0) {
         // one example of a result: SELECT * FROM courses WHERE subject = 'MATH' AND hours = '3'
-        str += ' WHERE'
+        var qual = ''; // qualifier for filter
         for (var key of Object.keys(req.query)) {
-          str = str + ' ' + key + ' = \'' + req.query[key] + '\' AND';
+          if (req.query[key] != '') {
+            if (key == 'minhours' || key == 'maxhours') {
+              if (key == 'minhours') {
+                qual = qual + ' ' + key + ' >= ' + req.query[key] + ' AND';
+              }
+              if (key == 'maxhours') {
+                qual = qual + ' ' + key + ' <= ' + req.query[key] + ' AND';
+              }
+            } else {
+              qual = qual + ' ' + key + ' = \'' + req.query[key] + '\' AND';
+            }
+          }
         }
-        str += ' subject IS NOT NULL'; // could be better. needed to handle the extra 'AND' at the end
+        if (qual.length > 0) {
+          str = str + ' WHERE' + qual + ' subject IS NOT NULL'; // could be better. needed to handle the extra 'AND' at the end
+        }
       }
 
-      const result = await client.query(str);      
+      const result = await client.query(str);
       const results = { 'results': (result) ? result.rows : null };
       res.render('pages/courses', results)
-      client.release(); 
+      client.release();
     } catch (err) {
       console.error(err);
       res.send("Error " + err);

@@ -12,8 +12,33 @@
 
 <body>
         <div class="coursesMain">
-        <div style="margin-right: 15px;" class="titleText animated fadeInLeft slower">Courses</div>
-        <a class="animated flipInY delay-1s" href="/"><button>Go back</button></a>
+        <div style="margin-right: 15px;" class="titleText">Courses</div>
+        <form name="filterOptions" action="/courses" onsubmit="return validateForm()" method="GET">
+            Subject
+            <select name="subject" id="subjectBox"></select><br><br>
+
+            Minimum hours <input type="number" name="minhours" value="0" step="1" max="20" min="0"><br><br>
+            Maximum hours <input type="number" name="maxhours" value="20" step="1" max="20" min="0"><br><br>
+
+            Honors <input type="checkbox" name="honors" value="true"><br><br>
+            Lab <input type="checkbox" name="lab" value="true"><br><br>
+            Drill <input type="checkbox" name="drill" value="true"><br><br>
+            Variable credit <input type="checkbox" name="variable" value="true"><br><br>
+
+            Level
+            <select name="level">
+                <option value="">Any level</option>
+                <option value="freshman">Freshman (1000)</option>
+                <option value="sophomore">Sophomore (2000)</option>
+                <option value="junior">Junior (3000)</option>
+                <option value="senior">Senior (4000)</option>
+                <option value="graduate">Graduate (5000+)</option>
+                <option value="other">Other</option>
+            </select><br><br>
+
+            <input type="submit" value="Search">
+        </form>
+        <a href="/"><button>Go back</button></a>
         </div>
         <div class = "section animated slideInUp slow">
         <ul>
@@ -31,29 +56,26 @@
 </body>
 
 <script>
-    function generateTableHead(table) {
-        let thead = table.createTHead();
-        let row = thead.insertRow();
-        for (let key of data) {
-            let th = document.createElement("th");
-            let text = document.createTextNode(key);
-            th.appendChild(text);
-            row.appendChild(th);
-        }
+    let subjects = [{'subjectCode':'ACCT', 'subjectName':'Accounting (ACCT)'}, {'subjectCode':'ANTH', 'subjectName':'Anthropology (ANTH)'}, {'subjectCode':'ARTS', 'subjectName':'Art (ARTS)'}];
+
+    var subjectList = document.getElementById("subjectBox");
+    subjectList.innerHTML = "<option value=\'\'>All majors</option>";
+                
+    for (s of subjects) {
+        subjectList.innerHTML += "<option value=\'" + s.subjectCode + "\'>" + s.subjectName + "</option>";
     }
 
-    let courses = document.getElementsByName("results");
-    //let courses = [{"name":"zander", "age": 21}, {"name":"Gaby", "age":19}];
-
-    let table = document.querySelector("table");
-    let data = Object.keys(courses[0]);
-    generateTableHead(table);
-
-
-
-
-
-
+    function validateForm() {
+        if (document.forms["filterOptions"]["minhours"].value > document.forms["filterOptions"]["maxhours"].value) {
+            alert("Minimum hours cannot be greater than maximum hours");
+            return false;
+        }
+        
+        for (param of document.forms["filterOptions"].URLSearchParams) {
+            if (param.value == "")
+            URLSearchParams.delete(param);   
+        }
+    }
 </script>
 
 </html>
