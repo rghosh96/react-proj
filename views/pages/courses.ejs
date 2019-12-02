@@ -12,10 +12,10 @@
 
 <body>
         <div class="coursesMain">
-        <div style="margin-right: 15px;" class="titleText">Courses</div>
-        <a href="/"><button>Go back</button></a>
+        <div style="margin-right: 15px;" class="titleText animated fadeInLeft slower">Courses</div>
+        <a class="animated flipInY delay-1s" href="/"><button>Go back</button></a>
         </div>
-        <div class = "section">
+        <div class = "section animated slideInUp slow">
         <ul>
             <% results.forEach(function(r) { %>
             <li style="color:maroon; font-size: 13px; margin: 5px;"><%= r.id %> - <%= r.name %> - <%= r.subject %> - <%= r.number %> - <%= r.hours %></li>
