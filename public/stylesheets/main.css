@@ -173,6 +173,7 @@ button:hover {
   padding: 50px;
   border: none;
   width: 50%;
+  height: 80%;
 }
 
 .userModal {
@@ -318,54 +319,79 @@ button {
 
 /* responsive - for mobile */
 @media only screen and (max-width: 500px) {
-  #userAccess {
-      font-size: 10px;
+  .superSection {
+    flex-direction:column;
+    justify-content: center;
   }
-  .header {
-      font-size: 10px
+  .section {
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 31px 0px;
   }
-  .logo {
-      height:25px;
-  }
-  .modalcontent {
-      padding: 15px;
+  .field {
+    flex-direction: column;
   }
   h1 {
-      font-size: 17px;
-  }
-  h2 {
-      font-size: 14px;
+    font-size: 17px;
+    text-align: center;
   }
   h3 {
-      font-size: 12px;
+    font-size: 13px;
+    text-align: center;
   }
-  .paragraph {
-      font-size: 10px;
+  .modalcontent {
+    width: 70%;
+    align-items: center;
   }
-  #links {
-      visibility: hidden;
+  h2 {
+    font-size: 15px;
   }
-  .openbtn {
-      visibility: visible;
+  p {
+    font-size: 11px;
   }
 }
 
 /* responsive - for tablet */
 @media only screen and (min-width: 501px) and (max-width: 1025px) {
-  #userAccess {
-      font-size: 15px;
+  .superSection {
+    flex-direction:column;
+    justify-content: center;
   }
-  #links {
-      visibility: hidden;
+  .section {
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 31px 0px;
   }
-  .openbtn {
-      visibility: visible;
+  .field {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 17px;
+    text-align: center;
+  }
+  h3 {
+    font-size: 13px;
+    text-align: center;
+  }
+  .modalcontent {
+    width: 70%;
+    align-items: center;
+  }
+  h2 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 11px;
   }
 }
 
 /* responsive - for desktop */
 @media only screen and (min-width: 1026px) {
-
+  
 }
 
 @keyframes pulse {
