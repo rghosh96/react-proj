@@ -127,6 +127,12 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-top: 31px;
+}
+
+img {
+  width: 55px;
+  margin: 11px;
 }
 
 
