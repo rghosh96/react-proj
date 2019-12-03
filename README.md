@@ -34,7 +34,7 @@ So! Your changes on your local branch are all good. You have pushed your branch 
 First, switch to the master branch
 `git checkout master`
 Now let's update master and make sure it is up to date with the remote master on GitHub:
-`git pull master`
+`git pull origin master`
 Next, we merge changes from our local branch into master:
 `git merge <local-branch-name>`
 Finally, push it to the remote repo! And the app automatically deploys!
