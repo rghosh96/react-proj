@@ -9,67 +9,26 @@
     <link rel="stylesheet" href="./stylesheets/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-    <style>
-        table {
-            border-collapse: collapse;
-        }
 
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-
-        /* Tooltip container */
-        .tooltip {
-            position: relative;
-            /* display: inline-block; */
-            border-bottom: 1px dotted black;
-        }
-
-        /* Tooltip text */
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 400px;
-            background-color: black;
-            color: #fff;
-            text-align: left;
-            padding: 5px 0;
-            border-radius: 6px;
-
-            position: absolute;
-            z-index: 1;
-        }
-
-        /* Show the tooltip text when you mouse over the tooltip container */
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-        }
-    </style>
 </head>
 
 <body>
-    <div id="mobile">
     <div class="coursesMain">
         <div style="margin-right: 15px;" class="titleText">Courses</div>
+        <a class = "return" href="/"> << back </a>
         <form name="filterOptions" action="/courses" onsubmit="return validateForm()" method="GET">
-            <br>Subject<br>
-            <select name="subject" id="subjectBox"></select><br><br>
+            <h4>[subject]</h4>
+            <select name="subject" id="subjectBox"></select><br>
 
-            Minimum hours <input type="number" name="minhours" value="0" step="1" max="20" min="0"><br><br>
-            Maximum hours <input type="number" name="maxhours" value="20" step="1" max="20" min="0"><br><br>
+            <span><h4>[min hours] <input type="number" name="minhours" value="0" step="1" max="20" min="0"></h4></span><br>
+            <span><h4>[max hours] <input type="number" name="maxhours" value="20" step="1" max="20" min="0"></h4></span><br>
 
-            Honors <input type="checkbox" name="honors" value="true"><br><br>
-            Lab <input type="checkbox" name="lab" value="true"><br><br>
-            Drill <input type="checkbox" name="drill" value="true"><br><br>
-            Variable credit <input type="checkbox" name="variable" value="true"><br><br>
+            <span><h4>[honors?] <input type="checkbox" name="honors" value="true"></h4></span><br>
+            <span><h4>[lab?] <input type="checkbox" name="lab" value="true"></h4></span><br>
+            <span><h4>[drill?] <input type="checkbox" name="drill" value="true"></h4></span><br>
+            <span><h4>[variable credit?] <input type="checkbox" name="variable" value="true"></h4></span><br>
 
-            Level
+            <h4>[level]</h4>
             <select name="level">
                 <option value="">Any level</option>
                 <option value="freshman">Freshman (1000)</option>
@@ -80,9 +39,9 @@
                 <option value="other">Other</option>
             </select><br><br>
 
-            <input type="submit" value="Search">
+           <input  type="submit" value="Search">
         </form>
-        <a href="/"><button>Go back</button></a>
+        
     </div>
     <div class="section animated slideInUp slow">
         <table style="width:100%">
@@ -122,7 +81,6 @@
             <%}}); %>
         </ul> -->
     </div>
-</div>
 
 
 

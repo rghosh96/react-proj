@@ -21,6 +21,13 @@ body {
   height: 90vh;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 31px;
+}
+
 .coursesMain {
   border-right: 2px solid gray;
   display: flex;
@@ -131,7 +138,7 @@ button:hover {
   justify-self: flex-start;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto !important; /* Enable scroll if needed */
+  overflow: auto; /* Enable scroll if needed */
   border-radius: 25px;
   margin: auto;
   padding: 50px;
@@ -179,6 +186,14 @@ h3 {
   color: rgb(44, 63, 51);
 }
 
+h4 {
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  margin-bottom: 3px;
+  color: rgb(44, 63, 51);
+}
+
 .introText {
   margin: 7px;
   font-family: 'Roboto Mono', monospace;
@@ -207,6 +222,18 @@ hr {
   margin: 21px 0px 21px 0px;
 }
 
+
+.section {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 50%;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  margin: 31px;
+}
+
 .field {
   display: flex;
   flex-direction: row;
@@ -222,16 +249,6 @@ hr {
   justify-content: flex-start;
   width: 80%;
   margin-top: 31px;
-}
-
-.section {
-  display: flex;
-  align-self: flex-start;
-  justify-content: flex-start;
-  flex-direction: row;
-  width: 50%;
-  flex-wrap: wrap;
-  margin: 31px 31px 15px 31px;
 }
 
 .vl {
@@ -261,6 +278,35 @@ input[type="radio"] {
   margin-right: 3px;
 }
 
+input[type="submit"] {
+  transition: all .7s ease-in-out;
+  padding: 11px;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 20px;
+  outline:none;
+  font-family: 'Roboto Mono', monospace;
+}
+
+input[type="submit"]:hover {
+  color: #783000;
+  cursor: pointer;
+  animation: pulse 1s infinite;
+  border-radius: 20px;
+  border-color: #855555;
+}
+
+.return {
+  margin: 20px; 
+  font-size: 11px; 
+  color: gray;
+  transition: all .7s ease-in-out;
+}
+
+.return:hover {
+  letter-spacing: 3px;;
+}
+
 .inp {
   width: 150px;
   display: flex;
@@ -283,43 +329,47 @@ button {
   outline:none;
   font-family: 'Roboto Mono', monospace;
 }
+table {
+  border-collapse: collapse;
+}
 
-#button {
-  display: inline-block;
-  background-color: #FF9800;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  border-radius: 4px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
-  opacity: 0;
-  visibility: visible;
-  z-index: 1000;
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
-#button::after {
-  content: "\f077";
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 2em;
-  line-height: 50px;
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  /* display: inline-block; */
+  border-bottom: 1px dotted black;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 400px;
+  background-color: black;
   color: #fff;
+  text-align: left;
+  padding: 5px;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
 }
-#button:hover {
-  cursor: pointer;
-  background-color: #333;
-}
-#button:active {
-  background-color: #555;
-}
-#button.show {
-  opacity: 1;
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
 
 /* responsive - for mobile */
 @media screen and (max-width: 500px) {
@@ -331,11 +381,9 @@ button {
   .section {
     flex-direction: column;
     width: 100%;
-    height: 100%;
     justify-content: center;
     align-items: center;
     margin: 0px 0px 31px 0px;
-    flex-wrap: nowrap;
   }
   .field {
     flex-direction: column;
@@ -361,7 +409,11 @@ button {
   .inp {
     width: 70%;
   }
+
+
 }
+
+
 
 /* responsive - for tablet */
 @media screen and (min-width: 501px) and (max-width: 1050px) {
