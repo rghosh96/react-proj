@@ -131,14 +131,13 @@ button:hover {
   justify-self: flex-start;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll !important; /* Enable scroll if needed */
+  overflow-y: auto !important; /* Enable scroll if needed */
   border-radius: 25px;
   margin: auto;
   padding: 50px;
   border: none;
-  width: 70%;
+  max-width: 70%;
   max-height: 80%;
-  overflow-x: hidden;
 }
 
 .userModal {
