@@ -46,10 +46,10 @@
     <div class="section animated slideInUp slow">
         <table style="width:100%">
             <tr>
-                <th>Course Code</th>
-                <th>Course Name</th>
-                <th>Credit Hours</th>
-                <th>Description</th>
+                <th><h3 style="margin: 10px;">Course Code</h3></th>
+                <th><h3>Course Name</h3></th>
+                <th><h3>Credit Hours</h3></th>
+                <th><h3>Description</h3></th>
             </tr>
             <% results.forEach(function(r) { %>
             <tr>
@@ -57,14 +57,14 @@
                 <td style="color:maroon; font-size: 13px; margin: 5px; width:20%;"><%= r.subject %> <%= r.number %></td>
                 <td style="color:maroon; font-size: 13px; margin: 5px; width:45%;"><%= r.name %></td>
                 <td style="color:maroon; font-size: 13px; margin: 5px; width:15%;"><%= r.minhours %></td>
-                <td class="tooltip" style="color:maroon; font-size: 13px; margin: 5px; width:20%;"><%= r.description.substring(0, 20) + '...' %>
+                <td class="tooltip"><%= r.description.substring(0, 20) + '...' %>
                     <span class="tooltiptext"><%= r.description %></span>
                 </td>
                 <%} else {%>
                 <td style="color:maroon; font-size: 13px; margin: 5px; width:20%;"><%= r.subject %> <%= r.number %></td>
                 <td style="color:maroon; font-size: 13px; margin: 5px; width:45%;"><%= r.name %></td>
                 <td style="color:maroon; font-size: 13px; margin: 5px; width:15%;"><%= r.minhours %>-<%= r.maxhours %></td>
-                <td class="tooltip" style="color:maroon; font-size: 13px; margin: 5px; width:20%;"><%= r.description.substring(0, 20) + '...' %>
+                <td class="tooltip" ><%= r.description.substring(0, 20) + '...' %>
                     <span class="tooltiptext"><%= r.description %></span>
                 </td>
                 <%}%>
