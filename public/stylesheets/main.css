@@ -136,8 +136,8 @@ button:hover {
   margin: auto;
   padding: 50px;
   border: none;
-  max-width: 70%;
-  max-height: 80%;
+  width: 70%;
+  height: 80%;
 }
 
 .userModal {

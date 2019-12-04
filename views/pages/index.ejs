@@ -115,7 +115,10 @@ function myFunction(x) {
     if (x.matches) { // If media query matches
         var i;
         for (i = 0; i < modalcontent.length; i++) {
-            modalcontent[i].style.width = "80%";
+            modalcontent[i].style.height = "100%";
+            modalcontent[i].style.top = "0";
+            modalcontent[i].style.position = "fixed";
+            modalcontent[i].style.width = "100%";
             modalcontent[i].style.alignItems = "center";
         }
         for (i = 0; i < superSection.length; i++) {
