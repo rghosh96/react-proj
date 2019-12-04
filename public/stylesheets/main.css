@@ -214,9 +214,8 @@ hr {
   justify-content: flex-start;
   flex-direction: row;
   width: 50%;
-  margin-bottom: 15px;
   flex-wrap: wrap;
-  margin: 31px;
+  margin: 31px 31px 15px 31px;
 }
 
 .field {

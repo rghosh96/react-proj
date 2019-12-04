@@ -125,6 +125,7 @@ function myFunction(x) {
         }
         for (i = 0; i < section.length; i++) {
             section[i].style.flexDirection = "column";
+            section[i].style.alignItems = "flex-start";
             section[i].style.height = "100%";
             section[i].style.flexWrap = "nowrap";
             section[i].style.justifyContent = "center";
@@ -168,11 +169,11 @@ function myFunction(x) {
             superSection[i].style.width = "80%";
         }
         for (i = 0; i < section.length; i++) {
-            section[i].style.flexDirection = "row";
             section[i].style.justifyContent = "flex-start";
+            section[i].style.flexDirection = "row";
+            section[i].style.flexWrap = "wrap";
             section[i].style.width = "50%";
-            section[i].style.alignItems = "flex-start";
-            section[i].style.margin = "31px";
+            section[i].style.margin = "31px 31px 15px 31px";
         }
         for (i = 0; i < field.length; i++) {
             field[i].style.flexDirection = "row";
