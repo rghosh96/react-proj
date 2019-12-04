@@ -1,97 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
     <title>pocketAdvisor</title>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Poiret+One|Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-</head>
-<body>
-    
-<div class="main">
-    <div class="title animated flipInY">
-        <img src="logo.png"/>
-        <div class="introText">[ welcome to ]</div>
-        <div class="titleText">pocket advisor</div>
-        <div class="introText" style="font-size: 11px">the degree audit you always wish you had</div>
-    </div>
 
-    <div class = "options">
-    <div class="top animated fadeInLeft delay-1s"> 
-        <button id="userAccess" onclick="dropModal('userModal')">User Access</button> 
+    <style>
+        .redalert {
+            padding: 20px;
+            background-color: #d1817c;
+            color: white;
+        }
+
+        .greenalert {
+            padding: 20px;
+            background-color: #70c274;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            height: 0px
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <% if (typeof results != 'undefined') { %>
+        <% if (results.msgcolor == 'red') { %>
+    <div class="redalert" style="position:fixed;top:0;width:100%;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%= results.msg %>
     </div>
-    <div class="top animated fadeInRight delay-1s"> 
-            <a href="/courses"><button>Guest Access</button> </a>
+    <%} else if (results.msgcolor == 'green') {%>
+    <div class="greenalert" style="position:fixed;top:0;width:100%;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%= results.msg %> 
+    </div>
+    <%}}%>
+
+    <div class="main">
+        <div class="title animated flipInY">
+            <img src="logo.png"/>
+            <div class="introText">[ welcome to ]</div>
+            <div class="titleText">pocket advisor</div>
+            <div class="introText" style="font-size: 11px">the degree audit you always wish you had</div>
+        </div>
+
+        <div class = "options">
+            <div class="top animated fadeInLeft delay-1s">
+                <button id="userAccess" onclick="dropModal('userModal')">User Access</button>
+            </div>
+            <div class="top animated fadeInRight delay-1s">
+                <a href="/courses"><button>Guest Access</button> </a>
+            </div>
         </div>
     </div>
-</div>
 
     <div id = "userModal">
         <div class = "modalcontent userModal animated bounceInDown">
             <span id ="close" style="color:#800000;">✘</span>
-            <h1 class ="animated jello" style="color:#800000;">[ user access]</h1>
-            <h3 class ="animated jello" style="color:#855555;">Hello! User access is for those who wish to save their advising data. If you are returning, sign on in! Otherwise, create an account!</h3>
+            <h1 class ="animated jello" style="color:#800000;">[user access]</h1>
+            <h3 class ="animated jello" style="color:#855555;">Hello! User access is for those who wish to save their
+                advising data. If you are returning, sign on in! Otherwise, create an account!</h3>
             <div class = "superSection">
-            <div class = "section">
-                <h2 style="width: 100%; text-align: left;">[returning user]</h2><br>
-                <p style="font-family: 'Poiret One', cursive; color:gray; margin-bottom: 15px;">Welcome back! It's good to see you again. Sign in below!</p>
-                <div class="field">
-                    <p style="color:#855555;">username:</p>
-                    <input type="text" name="username">
+                <div class = "section">
+                    <h2 style="width: 100%; text-align: left;">[returning user]</h2><br>
+                    <p style="font-family: 'Poiret One', cursive; color:gray; margin-bottom: 15px;">Welcome back! It's
+                        good to see you again. Sign in below!</p>
+                    <form name="login" action="/courses" method="POST">
+                        <div class="field">
+                            <p style="color:#855555;">username:</p>
+                            <input type="text" name="username">
+                        </div>
+                        <div class="field">
+                            <p style="color:#855555;">password:</p>
+                            <input type="password" name="password">
+                        </div>
+                        <input type="submit" style="margin-top: 31px; background-color:maroon; color:white;">sign
+                        in</button>
+                    </form>
                 </div>
-                <div class="field">
-                    <p style="color:#855555;">password:</p>
-                    <input type="password" name="password">
+                <div class="vl"></div>
+                <div class="section">
+                    <h2 style="width: 100%; text-align: left;">[new user]</h2><br>
+                    <p style="font-family: 'Poiret One', cursive; color:gray; margin-bottom: 15px;">New to
+                        pocketAdvisor? Create a free account below!</p>
+                    <form name="register" action="/" id="register" onsubmit="return validateRegister()" method="POST">
+                        <div class="field">
+                            <p style="color:#855555;">major:</p>
+                            <div class="inp">
+                                <input type="radio" name="major" value="B.S.C.S.">
+                                <p style="margin-right:7px;">B.S.C.S.</p>
+                                <input type="radio" name="major" value="B.A.C.S.">
+                                <p style="margin-right:7px;">B.A.C.S.</p>
+                                <input type="radio" name="major" value="B.S.C.E.">
+                                <p style="margin-right:7px;">B.S.C.E.</p>
+                                <input type="radio" name="major" value="other">
+                                <p>other</p>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <p style="color:#855555;">minor:</p>
+                            <div class="inp">
+                                <input type="radio" name="minor" value="C.S.">
+                                <p style="margin-right:7px;">C.S.</p>
+                                <input type="radio" name="minor" value="Math">
+                                <p style="margin-right:7px;">Math</p>
+                                <input type="radio" name="minor" value="Other">
+                                <p>Other</p>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <p style="color:#855555;">username:</p>
+                            <input type="text" name="username">
+                        </div>
+                        <div class="field">
+                            <p style="color:#855555;">password:</p>
+                            <input type="password" name="password">
+                        </div>
+                        <input type="submit"
+                            style="margin-top: 31px; background-color:maroon; color:white;">register</button>
+                    </form>
                 </div>
-                <button style="margin-top: 31px; background-color:maroon; color:white;">sign in</button>
+
             </div>
-            <div class="vl"></div>
-            <div class = "section">
-                <h2 style="width: 100%; text-align: left;">[new user]</h2><br>
-                <p style="font-family: 'Poiret One', cursive; color:gray; margin-bottom: 15px;">New to pocketAdvisor? Create a free account below!</p>
-                <div class="field">
-                    <p style="color:#855555;">name:</p>
-                    <input type="text" name="name">
-                </div>
-                <div class="field">
-                    <p style="color:#855555;">email:</p>
-                    <input type="text" name="email">
-                </div>
-                <div class="field">
-                    <p style="color:#855555;">major:</p>
-                    <div class="inp">
-                        <input type="radio" name="major" value="CS"> <p style="margin-right:7px;">CS</p>
-                        <input type="radio" name="major" value="CE"> <p style="margin-right:7px;">CE</p>
-                        <input type="radio" name="major" value="other"> <p>other</p>
-                    </div>
-                </div>
-                <div class="field">
-                    <p style="color:#855555;">minor:</p>
-                    <div class="inp">
-                        <input type="radio" name="minor" value="CS"> <p style="margin-right:7px;">CS</p>
-                        <input type="radio" name="minor" value="CE"> <p style="margin-right:7px;">CE</p>
-                        <input type="radio" name="minor" value="math"> <p style="margin-right:7px;">math</p>
-                        <input type="radio" name="minor" value="other"> <p>other</p>
-                    </div>
-                </div>
-                <div class="field">
-                    <p style="color:#855555;">username:</p>
-                    <input type="text" name="username">
-                </div>
-                <div class="field">
-                    <p style="color:#855555;">password:</p>
-                    <input type="password" name="password">
-                </div>
-                <button style="margin-top: 31px; background-color:maroon; color:white;">register</button>
-            </div>
-            
-         </div>
         </div>
     </div>
-</div>
+    </div>
 
-</div>
+    </div>
 
 
 
@@ -100,46 +152,60 @@
     //********* BUILDING MODALS JAVASCRIPT FUNCTIONALITY! ***********//
 
 
+        //gets all the close buttons
+        var exit = document.getElementById("close");
 
-//gets all the close buttons
-var exit = document.getElementById("close");
+        //function to make building modals appear when clicked; takes specified modal & building svg
+        function dropModal(modal) {
+            //series of if statements to change body bg color depending on modal selected
+            bgColor("#c2acac");
 
-//function to make building modals appear when clicked; takes specified modal & building svg
-function dropModal(modal) {
-    //series of if statements to change body bg color depending on modal selected
-        bgColor("#c2acac");
+            //display modal & enlarge specified building svg
+            document.getElementById(modal).style.display = "block";
 
-    //display modal & enlarge specified building svg
-    document.getElementById(modal).style.display = "block";
-
-
-    
-        //following function restores bg color to white, shows building links, hides modal, & scales building svg back down
-        exit.onclick = function() {
-            bgColor("white");
-            document.getElementById(modal).style.display = "none";
+            //following function restores bg color to white, shows building links, hides modal, & scales building svg back down
+            exit.onclick = function () {
+                bgColor("white");
+                document.getElementById(modal).style.display = "none";
+            }
         }
-    }
 
+        function bgColor(color) {
+            document.body.style.backgroundColor = color;
+        }
 
-function bgColor(color) {
-    document.body.style.backgroundColor = color;
-}
+        function show(item) {
+            var reveal = document.getElementById(item);
+            if (reveal.style.display === "block") {
+                reveal.style.display = "none";
+            }
+            else {
+                reveal.style.display = "block";
+            }
+        }
 
+        async function validateRegister() {
+            var alertString = '';
 
+            if (document.forms["register"]["major"].value.length == 0) {
+                alertString += "Please select a major\n";
+            }
+            if (document.forms["register"]["minor"].value.length == 0) {
+                alertString += "Please select a minor\n";
+            }
+            if (document.forms["register"]["username"].value == '') {
+                alertString += "Please enter a username\n";
+            }
+            if (document.forms["register"]["password"].value == '') {
+                alertString += "Please enter a password\n";
+            }
+            if (alertString != '') {
+                alert(alertString);
+                return false;
+            }
+        }
 
-
-//toggle duty and desk info
-function show(item) {
-    var reveal = document.getElementById(item);
-    if (reveal.style.display === "block") {
-        reveal.style.display = "none";
-    }
-    else {
-        reveal.style.display = "block";
-    }
-}
-    
     </script>
 </body>
+
 </html>
