@@ -71,6 +71,7 @@ express()
     }
   })
 
+  // login
   .post('/courses', async (req, res) => {
     try {
       const client = await pool.connect();
@@ -82,7 +83,7 @@ express()
         var obj = users.rows[i];
         if (obj.username == req.body.username) {
           if (obj.password == req.body.password) {
-            const result = await client.query('SELECT * FROM courses');
+            const result = await client.query('SELECT * FROM courses WHERE subject = \'CSCE\'');
             const results = { 'results': (result) ? result.rows : null };
             res.render('pages/courses', results)
             client.release();
