@@ -35,6 +35,8 @@ body {
   justify-content: flex-start;
 }
 
+
+
 .coursesMain {
   border-right: 2px solid gray;
   display: flex;
@@ -200,6 +202,8 @@ h4 {
   margin-bottom: 3px;
   color: rgb(44, 63, 51);
 }
+
+
 
 .introText {
   margin: 7px;
