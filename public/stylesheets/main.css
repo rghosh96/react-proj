@@ -21,11 +21,18 @@ body {
   height: 90vh;
 }
 
-form {
+.coursesForm {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin: 31px;
+}
+
+.indexForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .coursesMain {
@@ -281,19 +288,20 @@ input[type="radio"] {
 input[type="submit"] {
   transition: all .7s ease-in-out;
   padding: 11px;
-  border: 1px solid gray;
-  background-color: white;
+  border: none;
+  background-color: maroon;
   border-radius: 20px;
+  margin: 3px;
   outline:none;
+  color:white;
   font-family: 'Roboto Mono', monospace;
 }
 
 input[type="submit"]:hover {
-  color: #783000;
+  color: white;
   cursor: pointer;
   animation: pulse 1s infinite;
   border-radius: 20px;
-  border-color: #855555;
 }
 
 .return {
@@ -398,9 +406,8 @@ tr:nth-child(even) {
   .section {
     flex-direction: column;
     width: 100%;
-    min-height: 500px;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 0px 0px 31px 0px;
   }
   .field {
