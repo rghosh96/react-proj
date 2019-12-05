@@ -421,19 +421,11 @@ tr:nth-child(even) {
     padding: 0;
   }
 
-  .courses {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100vw;
-    height: 100vh;
-  }
   .coursesMain {
     width: 100vw;
     height: 30vh;
     margin: 11px;
-    position: relative;
+    position: fixed;
     flex-wrap: nowrap;
     border: none;
   }
@@ -456,8 +448,8 @@ tr:nth-child(even) {
   }
 
   .coursesTable {
+    margin-top: 70%;
     width: 100vw;
-    margin: 0;
   }
 
 
