@@ -399,9 +399,9 @@ tr:nth-child(even) {
 @media screen and (max-width: 500px) {
   .superSection {
     flex-direction:column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    min-height: 800px;
+    min-height: 600px;
   }
   .section {
     flex-direction: column;
