@@ -425,7 +425,7 @@ tr:nth-child(even) {
     width: 100vw;
     height: 30vh;
     margin: 11px;
-    position: fixed;
+    position: fixed;;
     flex-wrap: nowrap;
     border: none;
   }
@@ -450,6 +450,7 @@ tr:nth-child(even) {
   .coursesTable {
     margin-top: 70%;
     width: 100vw;
+    background-color: white;
   }
 
 
