@@ -393,10 +393,12 @@ tr:nth-child(even) {
     flex-direction:column;
     justify-content: center;
     width: 100%;
+    min-height: 800px;
   }
   .section {
     flex-direction: column;
     width: 100%;
+    min-height: 500px;
     justify-content: center;
     align-items: center;
     margin: 0px 0px 31px 0px;
