@@ -387,10 +387,6 @@ tr:nth-child(even) {
   z-index: 100;
 }
 
-.tooltip:hover {
-  animation: pulse 2s infinite;
-}
-
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
