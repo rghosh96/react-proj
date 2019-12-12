@@ -8,43 +8,47 @@
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Poiret+One|Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./stylesheets/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
-
 </head>
 
 <body>
-    
     <div class="coursesMain">
         <div class="titleText coursesTitle">Courses</div>
         <a class = "return" href="/"> << back </a>
-        <form class="coursesForm" name="filterOptions" action="/courses" onsubmit="return validateForm()" method="GET">
+
+        <form class="coursesForm" name="filterOptions" action="/courses" onsubmit="return validateForm()" method="GET">        
             <h4>[subject]</h4>
-            <select name="subject" id="subjectBox"><option value="">All subjects</option><option value="ACCT">Accounting (ACCT)</option><option value="ADLL">Adult and Lifelong Learning (ADLL)</option><option value="AAST">African and African American Studies (AAST)</option><option value="AGEC">Agricultural Economics (AGEC)</option><option value="AGED">Agricultural Education (AGED)</option><option value="AGME">Agricultural Mechanization (AGME)</option><option value="AGST">Agricultural Statistics (AGST)</option><option value="AFLS">Agriculture, Food and Life Sciences (AFLS)</option><option value="AERO">Air Force ROTC (AERO)</option><option value="ANSC">Animal Science (ANSC)</option><option value="ANTH">Anthropology (ANTH)</option><option value="AMPD">Apparel Merchandising and Product Development (AMPD)</option><option value="MUAC">Applied Music (Class) (MUAC)</option><option value="MUAP">Applied Music (Private Instruction) (MUAP)</option><option value="ARAB">Arabic (ARAB)</option><option value="ARCH">Architecture (ARCH)</option><option value="MILS">Army ROTC (MILS)</option><option value="ARTS">Art (ARTS)</option><option value="ARED">Art Education (ARED)</option><option value="ARHS">Art History (ARHS)</option><option value="ARSC">Arts and Sciences (ARSC)</option><option value="AIST">Asian Studies (AIST)</option><option value="ASTR">Astronomy (ASTR)</option><option value="ATTR">Athletic Training (ATTR)</option><option value="BENG">Biological Engineering (BENG)</option><option value="BIOL">Biology (BIOL)</option><option value="BMEG">Biomedical Engineering (BMEG)</option><option value="BLAW">Business Law (BLAW)</option><option value="CATE">Career and Technical Education (CATE)</option><option value="CEMB">Cell and Molecular Biology (CEMB)</option><option value="CHEG">Chemical Engineering (CHEG)</option><option value="CHEM">Chemistry and Biochemistry (CHEM)</option><option value="CHIN">Chinese (CHIN)</option><option value="CVEG">Civil Engineering (CVEG)</option><option value="CLST">Classical Studies (CLST)</option><option value="COMM">Communication (COMM)</option><option value="CDIS">Communication Disorders (CDIS)</option><option value="CCLE">Community College Leadership (CCLE)</option><option value="CHLP">Community Health Promotion (CHLP)</option><option value="CSCE">Computer Science and Computer Engineering (CSCE)</option><option value="CNED">Counselor Education (CNED)</option><option value="CRIM">Criminology (CRIM)</option><option value="CSES">Crop, Soil and Environmental Sciences (CSES)</option><option value="CIED">Curriculum and Instruction (CIED)</option><option value="DANC">Dance (DANC)</option><option value="DEAC">Dance Education Activity (DEAC)</option><option value="ECON">Economics (ECON)</option><option value="EDHP">Education (EDHP)</option><option value="EDRE">Education Reform (EDRE)</option><option value="EDFD">Educational Foundations (EDFD)</option><option value="EDLE">Educational Leadership (EDLE)</option><option value="ESRM">Educational Statistics and Research Methods (ESRM)</option><option value="EDST">Educational Studies (EDST)</option><option value="ETEC">Educational Technology (ETEC)</option><option value="ELEG">Electrical Engineering (ELEG)</option><option value="ENGR">Engineering (ENGR)</option><option value="EASL">English as Second Language (EASL)</option><option value="ENGL">English (ENGL)</option><option value="ELAC">English Language and Cultural Studies (ELAC)</option><option value="ENTO">Entomology (ENTO)</option><option value="ENDY">Environmental Dynamics (ENDY)</option><option value="ENSC">Environmental Science (ENSC)</option><option value="MUSY">Ethnomusicology (MUSY)</option><option value="EXSC">Exercise Science (EXSC)</option><option value="EXED">Extension Education (EXED)</option><option value="FJAD">Fay Jones Architecture and Design (FJAD)</option><option value="FINN">Finance (FINN)</option><option value="FDSC">Food Science (FDSC)</option><option value="FREN">French (FREN)</option><option value="GNST">Gender Studies (GNST)</option><option value="GNEG">General Engineering (GNEG)</option><option value="GEOS">Geosciences (GEOS)</option><option value="GERM">German (GERM)</option><option value="GRSD">Graduate Education Courses (GRSD)</option><option value="GDES">Graphic Design (GDES)</option><option value="GREK">Greek (GREK)</option><option value="HHPR">Health, Human Performance and Recreation (HHPR)</option><option value="HIED">Higher Education (HIED)</option><option value="HIST">History (HIST)</option><option value="HNRC">Honors College (HNRC)</option><option value="HORT">Horticulture (HORT)</option><option value="HOSP">Hospitality Management (HOSP)</option><option value="HDFS">Human Development and Family Sciences (HDFS)</option><option value="HESC">Human Environmental Sciences (HESC)</option><option value="HRWD">Human Resource and Workforce Development Education (HRWD)</option><option value="HUMN">Humanities (HUMN)</option><option value="INEG">Industrial Engineering (INEG)</option><option value="ISYS">Information Systems (ISYS)</option><option value="IDST">Interdisciplinary Studies (IDST)</option><option value="IDES">Interior Design (IDES)</option><option value="INST">International and Global Studies (INST)</option><option value="ITAL">Italian (ITAL)</option><option value="JAPN">Japanese (JAPN)</option><option value="JWST">Jewish Studies (JWST)</option><option value="JOUR">Journalism (JOUR)</option><option value="KINS">Kinesiology (KINS)</option><option value="LARC">Landscape Architecture (LARC)</option><option value="LAST">Latin American and Latino Studies (LAST)</option><option value="LATN">Latin (LATN)</option><option value="LAWW">Law (LAWW)</option><option value="MGMT">Management (MGMT)</option><option value="MKTG">Marketing (MKTG)</option><option value="MBAD">Master of Business Administration (MBAD)</option><option value="MATH">Mathematics (MATH)</option><option value="MEEG">Mechanical Engineering (MEEG)</option><option value="MRST">Medieval and Renaissance Studies (MRST)</option><option value="MEPH">Microelectronics-Photonics (MEPH)</option><option value="MEST">Middle East Studies (MEST)</option><option value="MUED">Music Education (MUED)</option><option value="MUEN">Music Ensemble (MUEN)</option><option value="MUHS">Music History (MUHS)</option><option value="MLIT">Music Literature (MLIT)</option><option value="MUSC">Music (MUSC)</option><option value="MUPD">Music Pedagogy (MUPD)</option><option value="MUTH">Music Theory (MUTH)</option><option value="NURS">Nursing (NURS)</option><option value="NUTR">Nutrition (NUTR)</option><option value="OMGT">Operations Management (OMGT)</option><option value="PHIL">Philosophy (PHIL)</option><option value="PEAC">Physical Education Activity (PEAC)</option><option value="PHED">Physical Education (PHED)</option><option value="PHYS">Physics (PHYS)</option><option value="PLPA">Plant Pathology (PLPA)</option><option value="PTSC">Plant Sciences (PTSC)</option><option value="PLSC">Political Science (PLSC)</option><option value="PORT">Portuguese (PORT)</option><option value="POSC">Poultry Science (POSC)</option><option value="PSYC">Psychology (PSYC)</option><option value="PADM">Public Administration (PADM)</option><option value="PBHL">Public Health (PBHL)</option><option value="PUBP">Public Policy (PUBP)</option><option value="RESM">Recreation and Sport Management (RESM)</option><option value="RHAB">Rehabilitation Education (RHAB)</option><option value="RSOC">Rural Sociology (RSOC)</option><option value="RUSS">Russian (RUSS)</option><option value="SEED">Secondary Education (SEED)</option><option value="SCWK">Social Work (SCWK)</option><option value="SOCI">Sociology (SOCI)</option><option value="SOST">Southern Studies (SOST)</option><option value="SPAC">Space and Planetary Sciences (SPAC)</option><option value="SPAN">Spanish (SPAN)</option><option value="SPED">Special Education (SPED)</option><option value="STAN">Statistics and Analytics (STAN)</option><option value="STAT">Statistics (STAT)</option><option value="STEM">STEM Education for Early Childhood (STEM)</option><option value="SCMT">Supply Chain Management (SCMT)</option><option value="SUST">Sustainability (SUST)</option><option value="SWAH">Swahili (SWAH)</option><option value="TEED">Technology Education (TEED)</option><option value="THTR">Theatre (THTR)</option><option value="UACS">U A Clinton School (UACS)</option><option value="UCPG">University Connections Program (UCPG)</option><option value="UNIV">University (UNIV)</option><option value="WCOB">Walton College of Business (WCOB)</option><option value="WLLC">World Languages, Literatures and Cultures (WLLC)</option><option value="WLIT">World Literature (WLIT)</option></select>
+            <select name="subject"><option value=''>All subjects</option>
+            <% subjectdata.forEach(function(r) { if (r.code == query.subject) {%>
+                <option value='<%= r.code %>' selected><%= r.name %></option><%} else {%>
+                <option value='<%= r.code %>'><%= r.name %></option>
+            <%}});%>
+            </select><br>
 
-            <span><h4>[min hours] <input type="number" name="minhours" value="0" step="1" max="20" min="0"></h4></span><br>
-            <span><h4>[max hours] <input type="number" name="maxhours" value="20" step="1" max="20" min="0"></h4></span><br>
+            <span><h4>[min hours] <input type="number" id="minh" name="minhours" value="<%= query.minhours %>" step="1" min="0" max="20" oninput="check(this)"></h4></span><br>
+            <span><h4>[max hours] <input type="number" id="maxh" name="maxhours" value="<%= query.maxhours %>" step="1" min="0" max="20"></h4></span><br>
 
-            <span><h4>[honors?] <input type="checkbox" name="honors" value="true"></h4></span><br>
-            <span><h4>[lab?] <input type="checkbox" name="lab" value="true"></h4></span><br>
-            <span><h4>[drill?] <input type="checkbox" name="drill" value="true"></h4></span><br>
-            <span><h4>[variable credit?] <input type="checkbox" name="variable" value="true"></h4></span><br>
+            <span><h4>[honors?] <input type="checkbox" name="honors" <% if (query.honors) {%> checked <%}%>></h4></span><br>
+            <span><h4>[lab?] <input type="checkbox" name="lab" value="true" <% if (query.lab) {%> checked <%}%>></h4></span><br>
+            <span><h4>[drill?] <input type="checkbox" name="drill" value="true" <% if (query.drill) {%> checked <%}%>></h4></span><br>
+            <span><h4>[variable credit?] <input type="checkbox" name="variable" value="true" <% if (query.variable) {%> checked <%}%>></h4></span><br>
 
             <h4>[level]</h4>
             <select name="level">
                 <option value="">Any level</option>
-                <option value="freshman">Freshman (1000)</option>
-                <option value="sophomore">Sophomore (2000)</option>
-                <option value="junior">Junior (3000)</option>
-                <option value="senior">Senior (4000)</option>
-                <option value="graduate">Graduate (5000+)</option>
-                <option value="other">Other</option>
+                <option value="freshman" <%if (query.level == 'freshman') {%> selected <%}%> >Freshman (1000)</option>
+                <option value="sophomore" <%if (query.level == 'sophomore') {%> selected <%}%>>Sophomore (2000)</option>
+                <option value="junior" <%if (query.level == 'junior') {%> selected <%}%>>Junior (3000)</option>
+                <option value="senior" <%if (query.level == 'senior') {%> selected <%}%>>Senior (4000)</option>
+                <option value="graduate" <%if (query.level == 'graduate') {%> selected <%}%>>Graduate (5000+)</option>
+                <option value="other" <%if (query.level == 'other') {%> selected <%}%>>Other</option>
             </select><br><br>
 
-           <input  type="submit" value="Search">
-        </form>
-        
+            <div style="height:40px"><button onclick="clearFilter()" type="button">Clear</button><input type="submit" value="Search"></div>           
+            
+
+        </form>        
     </div>
-    <div class="coursesTable animated slideInUp slow">
+    <div class="coursesTable animated slideInUp slow" id="coursesTable">
         <table style="width:100%">
             <tr>
                 <th><h3 style="margin: 10px;">Course Code</h3></th>
@@ -52,49 +56,42 @@
                 <th><h3>Credit Hours</h3></th>
                 <th><h3>Description</h3></th>
             </tr>
-            <% results.forEach(function(r) { %>
-            <tr>
-                <% if (r.minhours == r.maxhours) {%>
+
+            <% courses.forEach(function(r) { %>
+            <tr>               
                 <td style="color:maroon; font-size: 13px; margin: 5px; width:20%;"><%= r.subject %> <%= r.number %></td>
                 <td style="color:maroon; font-size: 13px; margin: 5px; width:45%;"><%= r.name %></td>
-                <td style="color:maroon; font-size: 13px; margin: 5px; width:15%;"><%= r.minhours %></td>
+                <td style="color:maroon; font-size: 13px; margin: 5px; width:15%;"> 
+                    <% if (r.minhours == r.maxhours) {%><%= r.minhours %>
+                    <%} else {%><%= r.minhours %>-<%= r.maxhours %><%}%>
+                </td>
                 <td class="tooltip"><%= r.description.substring(0, 20) + '...' %>
                     <span class="tooltiptext"><%= r.description %></span>
-                </td>
-                <%} else {%>
-                <td style="color:maroon; font-size: 13px; margin: 5px; width:20%;"><%= r.subject %> <%= r.number %></td>
-                <td style="color:maroon; font-size: 13px; margin: 5px; width:45%;"><%= r.name %></td>
-                <td style="color:maroon; font-size: 13px; margin: 5px; width:15%;"><%= r.minhours %>-<%= r.maxhours %></td>
-                <td class="tooltip" ><%= r.description.substring(0, 20) + '...' %>
-                    <span class="tooltiptext"><%= r.description %></span>
-                </td>
-                <%}%>
+                </td>                
                 </tr>
             <%}); %>
 
         </table>
-    </div>
-
 </body>
 
 <script>
-    function validateForm() {
-        if (document.forms["filterOptions"]["minhours"].value > document.forms["filterOptions"]["maxhours"].value) {
+    function validateForm() {  
+        if (parseInt(document.getElementById("minh").value) > parseInt(document.getElementById("maxh").value)) {
             alert("Minimum hours cannot be greater than maximum hours");
             return false;
-        }
-
-        for (param of document.forms["filterOptions"].URLSearchParams) {
-            if (param.value == "")
-                URLSearchParams.delete(param);
-        }
+        } 
     }
 
-    // the best way to do this is to access the local file "subjects.json", but we are pressed for time :/
-    var subjectList = document.getElementById("subjectBox");
-    subjectList.innerHTML = "<option value=\'\'>All subjects</option>";
-    for (s of subjects) {
-        subjectList.innerHTML += "<option value=\'" + s.subjectCode + "\'>" + s.subjectName + "</option>";
+    function clearFilter() {
+        filter = document.forms["filterOptions"];
+        filter["subject"].value = "";
+        filter["minhours"].value = '0';
+        filter["maxhours"].value = '20';
+        filter["honors"].checked = false;
+        filter["lab"].checked = false;
+        filter["drill"].checked = false;
+        filter["variable"].checked = false;
+        filter["level"].value = "";
     }
 </script>
 

@@ -377,7 +377,7 @@ tr:nth-child(even) {
 
 /* Tooltip container */
 .tooltip {
-  position: relative;
+  position: static;
   font-size: 13px; 
   margin: 5px; 
   width:20%;
@@ -388,7 +388,7 @@ tr:nth-child(even) {
 }
 
 .tooltip:hover {
-  animation: pulse 1s infinite;
+  animation: pulse 2s infinite;
 }
 
 /* Tooltip text */
@@ -402,10 +402,7 @@ tr:nth-child(even) {
   border-radius: 6px;
   font-family: 'Roboto Mono', monospace;
   position: absolute;
-}
-
-.tooltiptext {
-  z-index: 1;
+  z-index: 200;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
