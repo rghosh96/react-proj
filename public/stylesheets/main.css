@@ -390,7 +390,7 @@ tr:nth-child(even) {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 400px;
+  width: 75%;
   background-color: maroon;
   color: #fff;
   text-align: left;
@@ -399,6 +399,7 @@ tr:nth-child(even) {
   font-family: 'Roboto Mono', monospace;
   position: absolute;
   z-index: 200;
+  right: 0%;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */

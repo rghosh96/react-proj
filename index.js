@@ -17,6 +17,8 @@ express()
   .use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
+
+  // route to homepage
   .get('/', (req, res) => res.render('pages/index'))
 
   // register, routes back to homepage for login
@@ -35,7 +37,6 @@ express()
           req.body.msgcolor = "red";
 
           const results = req.body;
-          console.log(results);
           res.render('pages/index', { "results": results });
           return;
         }
@@ -49,7 +50,6 @@ express()
         for (x = 0; x < 12; x++) {
           randId += chars[Math.floor(Math.random() * chars.length)];
         }
-        console.log('\n\n' + randId + '\n\n');
         i = await client.query('SELECT user_id FROM userdata WHERE user_id = \'' + randId + '\'');
         const ids = { 'rows': (i) ? i.rows : null };
         for (var j = 0; j < ids.rows.length; j++) {

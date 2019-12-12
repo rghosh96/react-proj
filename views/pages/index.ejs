@@ -125,12 +125,12 @@
                             </div>
                         </div>
                         <div class="field">
-                            <p style="color:#855555;">username:</p>
-                            <input type="text" name="username">
+                            <p style="color:#855555;">username - must contain only letters and numbers, and 8-20 characters</p>
+                            <input type="text" name="username" pattern="[a-zA-Z0-9]+{8,20}" required>
                         </div>
                         <div class="field">
-                            <p style="color:#855555;">password:</p>
-                            <input type="password" name="password">
+                            <p style="color:#855555;">password - must contain at least one number, one uppercase and lowercase letter, and 8-20 characters</p>
+                            <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                         </div>
                         <input type="submit" value="Sign up!">
                     </form>
@@ -182,20 +182,17 @@
             }
         }
 
-        async function validateRegister() {
+        function validateRegister() {
             var alertString = '';
 
             if (document.forms["register"]["major"].value.length == 0) {
-                alertString += "Please select a major\n";
+                document.forms["register"]["major"]."Please select a major\n";
             }
             if (document.forms["register"]["minor"].value.length == 0) {
                 alertString += "Please select a minor\n";
             }
             if (document.forms["register"]["username"].value == '') {
                 alertString += "Please enter a username\n";
-            }
-            if (document.forms["register"]["password"].value == '') {
-                alertString += "Please enter a password\n";
             }
             if (alertString != '') {
                 alert(alertString);
