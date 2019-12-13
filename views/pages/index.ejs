@@ -85,11 +85,11 @@
                     <form class="indexForm" name="login" action="/courses" method="POST">
                         <div class="field">
                             <p style="color:#855555;">username:</p>
-                            <input type="text" name="username">
+                            <input type="text" name="username" pattern="[a-zA-Z0-9]+{8,}" required>
                         </div>
                         <div class="field">
                             <p style="color:#855555;">password:</p>
-                            <input type="password" name="password">
+                            <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                         </div>
                         <input type="submit" value="Log in!">
                     </form>
@@ -125,12 +125,18 @@
                             </div>
                         </div>
                         <div class="field">
-                            <p style="color:#855555;">username - must contain only letters and numbers, and 8-20 characters</p>
-                            <input type="text" name="username" pattern="[a-zA-Z0-9]+{8,20}" required>
+                            <p class="register-tooltip" style="color:#855555;">username:
+                                <span class="register-tooltiptext">must contain only letters and numbers, and 8 or more characters</span>
+                            </p>
+                            <input type="text" name="username" pattern="[a-zA-Z0-9]+{8,}" required> 
+                            
                         </div>
                         <div class="field">
-                            <p style="color:#855555;">password - must contain at least one number, one uppercase and lowercase letter, and 8-20 characters</p>
+                            <p class="register-tooltip" style="color:#855555;">password:
+                                <span class="register-tooltiptext">must contain at least one number, one uppercase and lowercase letter, and 8 or more characters</span>
+                            </p>
                             <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                            
                         </div>
                         <input type="submit" value="Sign up!">
                     </form>
@@ -153,15 +159,11 @@
         //gets all the close buttons
         var exit = document.getElementById("close");
 
-        //function to make building modals appear when clicked; takes specified modal & building svg
         function dropModal(modal) {
-            //series of if statements to change body bg color depending on modal selected
             bgColor("#c2acac");
 
-            //display modal & enlarge specified building svg
             document.getElementById(modal).style.display = "block";
 
-            //following function restores bg color to white, shows building links, hides modal, & scales building svg back down
             exit.onclick = function () {
                 bgColor("white");
                 document.getElementById(modal).style.display = "none";
@@ -179,24 +181,6 @@
             }
             else {
                 reveal.style.display = "block";
-            }
-        }
-
-        function validateRegister() {
-            var alertString = '';
-
-            if (document.forms["register"]["major"].value.length == 0) {
-                document.forms["register"]["major"]."Please select a major\n";
-            }
-            if (document.forms["register"]["minor"].value.length == 0) {
-                alertString += "Please select a minor\n";
-            }
-            if (document.forms["register"]["username"].value == '') {
-                alertString += "Please enter a username\n";
-            }
-            if (alertString != '') {
-                alert(alertString);
-                return false;
             }
         }
 
